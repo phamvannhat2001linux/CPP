@@ -1,0 +1,24 @@
+Trong C++, namespace là một cách để tổ chức mã nguồn và tránh xung đột tên giữa các thành phần của chương trình. 
+Namespace giúp đưa các biến, hàm và lớp vào một phạm vi cụ thể. 
+Dưới đây là cách bạn có thể sử dụng namespace trong C++:
+
+''' cpp
+#include <iostream>
+
+// Định nghĩa namespace Math
+namespace Math {
+    int add(int a, int b) {
+        return a + b;
+    }
+}
+
+int main() {
+    // Sử dụng namespace Math để gọi hàm add
+    int result = Math::add(5, 7);
+
+    // In kết quả
+    std::cout << "5 + 7 = " << result << std::endl;
+
+    return 0;
+}
+'''
