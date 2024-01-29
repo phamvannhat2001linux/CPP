@@ -2,12 +2,12 @@
 using namespace std;
 
 class student {
-	private:
+	protected:
   		char name[20];
   		int roll;
   		int marks;
   		char grade;
-  		void compute_grade();
+  		virtual void compute_grade();
  	public:
   		void read_data();
   		void display_grade();
@@ -45,9 +45,30 @@ void student::display_grade(){
 	cout <<"\nGrade : " << grade <<endl;
 }
 
+class change_student : public student {
+	protected:
+		void compute_grade();
+};
+
+void change_student::compute_grade(){
+        if ( marks >= 80 ){
+                grade = 'A';}
+
+        else if ( marks >= 70 ){
+                grade = 'B';}
+
+        else if ( marks >= 60 ){
+                grade = 'C';}
+        else {
+                grade = 'E';}
+}
+
+
 int main(){
-	student obj1;
-	obj1.read_data();
-	obj1.display_grade();
+	student *ptr;
+	change_student dob;
+	ptr = & dob;
+	ptr->read_data();
+	ptr->display_grade();
 
 }
